@@ -37,7 +37,7 @@ The separate contribution package contains Python sources, tests and configurati
 
 ## Additional symptom reported by the notebook owner
 
-On some Linux distributions, I observed audio working normally for approximately 10–15 minutes, then becoming silent until the next computer reboot. The specific distributions/versions and the exact failure timeline still need to be documented.
+In my tests with **Zorin OS and Linux Mint**, I observed audio working normally for approximately 10–15 minutes, then becoming silent until the next computer reboot. The distribution versions and kernels used in those tests have not been recorded yet; the timing is approximate.
 
 This workaround may be worth testing for users with the same Positivo C4128A-14 / ES8326 hardware and symptom. Internal-speaker playback with the workaround is confirmed on my notebook, but sustained testing has not yet established that it prevents this delayed audio loss, particularly across other distributions. Microphone testing remains pending. This timing-related failure has not been proven to share the suspected UCM initialization cause.
 
@@ -54,12 +54,19 @@ Useful follow-up evidence would include elapsed time to failure, whether playbac
 
 This is a userspace workaround, not a new kernel codec driver. It deliberately restricts the route to internal speakers; headphone/HDMI behavior and microphone functionality are not validated by the current contribution draft. No application of this workaround was performed during preparation of this report.
 
+## Python and native C implementations
+
+The separate project now provides both the original Python implementation and a native C port of initialization, activation and manifest-based undo. The C version uses libasound, json-c and libcrypto. Both retain the same speaker/mixer strategy and shared configuration templates.
+
+The C build, mocked mixer/rollback tests and temporary-file/process tests passed, along with Python/C parity tests. The generated test WAV matches sample for sample. The C version has **not** been applied to the real codec or physically validated; the confirmed working speaker setup still uses the original Python installation. No performance or cross-distribution stability claim is made from the language choice.
+
 ## Evidence required before posting
 
 - [x] Internal-speaker playback works normally with the workaround, confirmed by the notebook owner.
 - [x] Record the owner-reported symptom on some distributions: audio works for about 10–15 minutes, then disappears until reboot.
-- [ ] Identify the affected distributions/versions and collect the exact failure evidence.
+- [ ] Record the Zorin OS/Linux Mint versions and kernels and collect the exact failure evidence.
 - [ ] Test sustained playback with the workaround beyond the reported failure window and record the result.
+- [ ] Validate the C implementation physically with rollback prepared; it is currently tested offline only.
 - [ ] Attach a sanitized alsa-info report and complete onboard ALSA controls, types/ranges/dB mapping.
 - [ ] Record the exact UCM parse/enable error, without changing a working setup blindly.
 - [ ] Identify loaded SOF topology and board/component identifiers, omitting serial numbers.

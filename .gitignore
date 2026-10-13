@@ -4,3 +4,4 @@ __pycache__/
 mixer-*.json
 ativacao-*/
 *.wav
+build/
