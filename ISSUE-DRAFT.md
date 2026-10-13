@@ -35,6 +35,14 @@ I am sharing this workaround as open source under the BSD-3-Clause license. Main
 
 The separate contribution package contains Python sources, tests and configuration templates without personal HOME paths. It does not include my private dotfiles, accounts, diagnostics or credentials. The templates require replacing @HOME@ with the local user's actual HOME; they are not an automatic installation package.
 
+## Additional symptom reported by the notebook owner
+
+On some Linux distributions, I observed audio working normally for approximately 10–15 minutes, then becoming silent until the next computer reboot. The specific distributions/versions and the exact failure timeline still need to be documented.
+
+This workaround may be worth testing for users with the same Positivo C4128A-14 / ES8326 hardware and symptom. Internal-speaker playback with the workaround is confirmed on my notebook, but sustained testing has not yet established that it prevents this delayed audio loss, particularly across other distributions. Microphone testing remains pending. This timing-related failure has not been proven to share the suspected UCM initialization cause.
+
+Useful follow-up evidence would include elapsed time to failure, whether playback was continuous or interrupted, whether it followed headphone/suspend events, and sanitized onboard mixer/control and relevant audio-service state before and after failure. No root cause is asserted from the timing alone.
+
 ## Local workaround, as implemented
 
 - Match the specific onboard sof-essx8336 PipeWire device.
@@ -49,7 +57,9 @@ This is a userspace workaround, not a new kernel codec driver. It deliberately r
 ## Evidence required before posting
 
 - [x] Internal-speaker playback works normally with the workaround, confirmed by the notebook owner.
-- [ ] Document the exact stock-configuration symptom and relevant errors.
+- [x] Record the owner-reported symptom on some distributions: audio works for about 10–15 minutes, then disappears until reboot.
+- [ ] Identify the affected distributions/versions and collect the exact failure evidence.
+- [ ] Test sustained playback with the workaround beyond the reported failure window and record the result.
 - [ ] Attach a sanitized alsa-info report and complete onboard ALSA controls, types/ranges/dB mapping.
 - [ ] Record the exact UCM parse/enable error, without changing a working setup blindly.
 - [ ] Identify loaded SOF topology and board/component identifiers, omitting serial numbers.

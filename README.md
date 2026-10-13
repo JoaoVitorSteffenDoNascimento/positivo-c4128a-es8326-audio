@@ -4,6 +4,12 @@ Contribuição de um usuário de notebook Positivo C4128A-14 usando Arch Linux. 
 
 A solução ajusta mixer ALSA e perfil ACP/WirePlumber para esse hardware. O driver ES8326 já existe no kernel. A causa exata da incompatibilidade UCM ainda precisa de diagnóstico; este projeto não declara suporte universal nem sucesso em todas as distribuições ou modelos Positivo.
 
+## Sintoma observado em outras distribuições
+
+Segundo o relato do proprietário, em algumas distribuições o áudio funciona inicialmente por aproximadamente **10–15 minutos** e depois desaparece, retornando somente após reiniciar o computador. As distribuições e versões específicas ainda precisam ser registradas.
+
+Se outro usuário de Positivo C4128A-14 com codec ES8326 encontrar esse comportamento, esta solução pode ser uma candidata para testar após conferir o hardware e preparar backup. A reprodução pelos alto-falantes com a solução foi confirmada no computador do proprietário; **ainda não foi verificado que ela elimina a perda de áudio após 10–15 minutos em outras distribuições**, nem estabelecida a causa dessa falha. O sintoma temporal também não comprova que a causa seja a mesma incompatibilidade UCM investigada.
+
 ## Uso pela comunidade
 
 Código disponibilizado sob **BSD-3-Clause**: a comunidade pode usar, estudar, adaptar e redistribuir, respeitando a licença e os avisos. Mantenedores podem aproveitar a solução para desenvolver uma correção upstream. Não é um lançamento oficial da Positivo.
