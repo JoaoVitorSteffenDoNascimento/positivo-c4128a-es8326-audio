@@ -1,0 +1,38 @@
+# Positivo C4128A-14: o codec ES8326 usa a placa sof-essx8336,
+# mas o perfil UCM instalado exige controles do ES8316 e falha no HiFi.
+# Perfil analógico exclusivo: uma saída fixa pelos alto-falantes internos.
+monitor.alsa.rules = [
+  {
+    matches = [
+      {
+        device.name = "alsa_card.pci-0000_00_0e.0-platform-sof-essx8336"
+      }
+    ]
+    actions = {
+      update-props = {
+        api.alsa.use-acp = true
+        api.alsa.use-ucm = false
+        api.alsa.soft-mixer = true
+        api.acp.disable-pro-audio = true
+        device.profile-set = "@HOME@/.config/alsa-card-profile/vision14-interno.conf"
+        device.profile = "vision14-interno"
+      }
+    }
+  }
+  {
+    matches = [
+      {
+        node.name = "~alsa_output.pci-0000_00_0e.0-platform-sof-essx8336.*"
+      }
+    ]
+    actions = {
+      update-props = {
+        node.description = "Alto-falantes do PC"
+        node.nick = "Som do PC"
+        priority.session = 2000
+        audio.rate = 48000
+        audio.allowed-rates = [ 48000 ]
+      }
+    }
+  }
+]

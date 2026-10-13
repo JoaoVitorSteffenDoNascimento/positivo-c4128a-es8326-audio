@@ -1,0 +1,18 @@
+; Rota fixa de alto-falantes. Não depende do estado de Headphone Jack.
+; Os volumes digitais são inicializados pelo hook do WirePlumber.
+[General]
+description = Alto-falantes do PC
+description-key = analog-output-speaker
+priority = 200
+
+[Properties]
+device.icon_name = audio-speakers
+
+[Element Headphone]
+switch = off
+volume = ignore
+
+[Element Speaker]
+required = switch
+switch = on
+volume = ignore

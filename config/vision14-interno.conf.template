@@ -1,0 +1,26 @@
+; Perfil exclusivo do Positivo C4128A-14 com codec ES8326.
+; Somente o PCM analógico 0: sem perfis de fone ou HDMI.
+[General]
+auto-profiles = no
+
+[Mapping vision14-speakers]
+description = Alto-falantes do PC
+device-strings = hw:%f,0
+channel-map = front-left,front-right
+direction = output
+paths-output = @HOME@/.config/alsa-card-profile/vision14-speaker
+priority = 200
+
+[Mapping vision14-microphone]
+description = Microfone interno
+device-strings = hw:%f,0
+channel-map = front-left,front-right
+direction = input
+paths-input = analog-input-internal-mic analog-input
+priority = 100
+
+[Profile vision14-interno]
+description = Som do PC
+output-mappings = vision14-speakers
+input-mappings = vision14-microphone
+priority = 200

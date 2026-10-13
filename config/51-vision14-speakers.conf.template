@@ -1,0 +1,4 @@
+[Service]
+# Reinicializa os controles digitais quando o gerenciador inicia.
+# Uma falha fica no journal, mas não impede o gerenciador de iniciar.
+ExecStartPre=-/usr/bin/python3 @HOME@/Diagnostico-Audio/audio_interno.py inicializar

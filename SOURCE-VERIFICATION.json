@@ -1,0 +1,38 @@
+[
+  {
+    "original": "Diagnostico-Audio/alsa_controles.py",
+    "sha256": "6e46765a39324ed1af569c865043cd13886049ce4207852fbc23e14c084391d5"
+  },
+  {
+    "original": "Diagnostico-Audio/audio_interno.py",
+    "sha256": "3f15fbff78722afb69e6af4706711799008cd09d4c0540925138d5794c2673ad"
+  },
+  {
+    "original": "Diagnostico-Audio/corrigir_audio.py",
+    "sha256": "8320eb26173e3dfe453440c69f4734ae057df2192727f6c1b6dbf7357c99f05d"
+  },
+  {
+    "original": "Diagnostico-Audio/test_audio.py",
+    "sha256": "e72e7399e591669297c8a573ad7b97d23e8570518b517d22f4a5537e04d7c385"
+  },
+  {
+    "original": "Diagnostico-Audio/test_audio_interno.py",
+    "sha256": "5215e5b186f8434006178ba5703b3f4d7fe7919255046cb1dc525f57f063e111"
+  },
+  {
+    "original": ".config/wireplumber/wireplumber.conf.d/51-vision14-es8326.conf",
+    "sha256": "5939f393f06ba08e19edc852ca7dd36aa3470c804b30a10075f29998c0c37385"
+  },
+  {
+    "original": ".config/systemd/user/wireplumber.service.d/51-vision14-speakers.conf",
+    "sha256": "6dbd329c316336066ddc6cd2836c46ec3378ba9908d1c4ca08408f941414c30c"
+  },
+  {
+    "original": ".config/alsa-card-profile/vision14-interno.conf",
+    "sha256": "42b815fcf193fad3b641ff85b3031791d9320a560c630d787d7b90758309d609"
+  },
+  {
+    "original": ".config/alsa-card-profile/vision14-speaker.conf",
+    "sha256": "2818663e98cabf00290e0077fd362937e0ae31fa344c15946c4dbfee778c9d5c"
+  }
+]

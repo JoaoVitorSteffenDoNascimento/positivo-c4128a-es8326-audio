@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.log
+mixer-*.json
+ativacao-*/
+*.wav
